@@ -17,8 +17,9 @@ public class SqlBuilder {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append("CREATE TABLE coins (")
+			.append("id INT AUTO_INCREMENT PRIMARY KEY,")
 			.append("name VARCHAR(255),")
-			.append("code VARCHAR(255) PRIMARY KEY,")
+			.append("code VARCHAR(255),")
 			.append("year VARCHAR(31),")
 			.append("diameter VARCHAR(31),")
 			.append("shape VARCHAR(255),")
@@ -32,6 +33,8 @@ public class SqlBuilder {
 			.append("comment VARCHAR(255),")
 			.append("photo VARCHAR(255)")
 			.append(");\n\n");
+		
+		System.out.println("INFO: SQL table prepared.");
 		
 		return sb.toString();
 	}
@@ -51,6 +54,8 @@ public class SqlBuilder {
 		
 		sb.setLength(sb.length() - 2);
 		sb.append(";\n");
+		
+		System.out.println("INFO: SQL query prepared.");
 		
 		return sb.toString();
 	}
