@@ -80,20 +80,12 @@ public class Parser {
 	}
 	
 	private Coin getCoinFromSingleRow(Element tableRow) {
-		Coin coin = new Coin();
 		List<String> attributes = new ArrayList<String>();
+		
+		attributes.add(tableRow.getElementsByTag("h3").get(0).text());
 		
 		Elements tds = tableRow.getElementsByTag("td");
 		Elements imgs = tableRow.getElementsByTag("img");
-		
-		/*
-		for(Element td : tds) {
-			Elements strongs = td.getElementsByTag("strong");
-			for(Element strong : strongs) {
-				attributes.add(strong.text());
-			}
-		}
-		 */
 		
 		for(Element td : tds) {
 			Elements divs = td.getElementsByTag("div");
@@ -106,13 +98,8 @@ public class Parser {
 		}
 		
 		attributes.add(imgs.get(0).attr("src"));
-		
-		// DEBUG
-		for(String s : attributes)
-			System.out.print(s + " | ");
-		System.out.println();
-		
-		return coin;
+
+		return new Coin(attributes);
 	}
 	
 }
