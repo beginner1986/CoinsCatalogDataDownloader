@@ -94,7 +94,10 @@ public class Parser {
 			}
 		}
 		
-		attributes.add(imgs.get(0).attr("src"));
+		if(imgs.isEmpty())
+			attributes.add("");
+		else
+			attributes.add(imgs.get(0).attr("src"));
 
 		return new Coin(attributes);
 	}

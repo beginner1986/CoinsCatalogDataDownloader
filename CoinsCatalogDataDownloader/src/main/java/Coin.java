@@ -39,12 +39,13 @@ public class Coin {
 		setWeight(parts[3]);
 		setStamp(parts[4]);
 		
-		setBorder(attributes.get(3).split("Rant:")[1]);
+		if(attributes.get(3).split("Rant:").length > 1)
+			setBorder(attributes.get(3).split("Rant:")[1]);
+		setBorder("");
 		
-		String comment = "";
 		if(attributes.get(4).split("Komentarz:").length > 1)
 			comment = attributes.get(4).split("Komentarz:")[1];
-		setComment(comment);
+		setComment("");
 		
 		setPhoto(attributes.get(5));
 	}
