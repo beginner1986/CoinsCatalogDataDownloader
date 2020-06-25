@@ -21,10 +21,7 @@ public class Parser {
 		return instance;
 	}
 	
-	public List<Coin> parse() {
-
-		int initNumber = 0;		// it will be iterated by 20 in final version
-		
+	public List<Coin> parse(int initNumber) {
 		Document document = openCatalogPage(initNumber);
 		Element table = getTable(document);
 		Elements tableRows = getTableRows(table);
@@ -42,7 +39,7 @@ public class Parser {
 	                .referrer("http://www.google.com")
 	                .ignoreHttpErrors(true)
 	                .get();
-			System.out.println("INFO: URL opened: " + url);
+			System.out.println("\nINFO: URL opened: " + url);
 			
 			return document;
 		} catch (IOException e) {

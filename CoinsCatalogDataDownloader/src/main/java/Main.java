@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Random;
 
 public class Main {
 
@@ -10,12 +11,26 @@ public class Main {
 		String sql = sqlBuilder.createTable();
 		fileManager.write(sql);
 		
-		List<Coin> coins = parser.parse();
+		for(int i=0; i<=3500; i+=20) {
+			List<Coin> coins = parser.parse(i);
+			sql = sqlBuilder.buildInsertQuery(coins);
+			fileManager.write(sql);
+			
+			sleep();
+		}
 		
-		sql = sqlBuilder.buildInsertQuery(coins);
-		fileManager.write(sql);
-
 		fileManager.dispose();
+	}
+	
+	private static void sleep() {
+		try {
+			Random random = new Random();
+			int sleepTime = 5 + random.nextInt(10);
+			Thread.sleep(sleepTime * 1000);
+		} catch (InterruptedException e) {
+			System.out.println("ERROR: Slleping thread error.");
+			e.printStackTrace();
+		}
 	}
 	
 }
