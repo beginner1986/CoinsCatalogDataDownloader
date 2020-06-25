@@ -86,10 +86,22 @@ public class Parser {
 		Elements tds = tableRow.getElementsByTag("td");
 		Elements imgs = tableRow.getElementsByTag("img");
 		
+		/*
 		for(Element td : tds) {
 			Elements strongs = td.getElementsByTag("strong");
 			for(Element strong : strongs) {
 				attributes.add(strong.text());
+			}
+		}
+		 */
+		
+		for(Element td : tds) {
+			Elements divs = td.getElementsByTag("div");
+			
+			for(Element div : divs) {
+				if(div.hasClass("col-md-2 col-sm-6 col-xs-12") || div.hasClass("comments")) {
+					attributes.add(div.text());
+				}
 			}
 		}
 		
@@ -99,8 +111,6 @@ public class Parser {
 		for(String s : attributes)
 			System.out.print(s + " | ");
 		System.out.println();
-		
-		// TODO: should read empty fields
 		
 		return coin;
 	}
