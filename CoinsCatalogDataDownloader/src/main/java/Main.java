@@ -8,11 +8,14 @@ public class Main {
 		
 		List<Coin> coins = parser.parse();
 		
-		for(Coin coin : coins)
-			System.out.println(coin);
-		
 		String sql = sqlBuilder.createTable();
 		sql += sqlBuilder.buildInsertQuery(coins);
+		
+		System.out.println(sql);
+		System.out.println();
+		
+		for(Coin coin : coins)
+			System.out.println(coin);
 	}
 	
 }

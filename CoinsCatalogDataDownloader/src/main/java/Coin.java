@@ -19,14 +19,18 @@ public class Coin {
 		
 		subAttributes = attributes.get(2);
 		parts = subAttributes.split("Metal: |Próba: |Waga: |Stempel: ");
-		setMetal(parts[0]);
-		setFineness(parts[1]);
-		setWeight(parts[2]);
+		setMetal(parts[1]);
+		setFineness(parts[2]);
 		setWeight(parts[3]);
 		setStamp(parts[4]);
 		
-		setBorder(attributes.get(3));
-		setComment(attributes.get(4));
+		setBorder(attributes.get(3).split("Rant:")[1]);
+		
+		String comment = "";
+		if(attributes.get(4).split("Komentarz:").length > 0)
+			comment = attributes.get(4).split("Komentarz:")[0];
+		setComment(comment);
+		
 		setPhoto(attributes.get(5));
 	}
 	

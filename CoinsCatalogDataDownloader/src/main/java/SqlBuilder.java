@@ -31,7 +31,7 @@ public class SqlBuilder {
 			.append("border VARCHAR(255,")
 			.append("comment VARCHAR(255),")
 			.append("photo VARCHAR(255)")
-			.append(");");
+			.append(");\n\n");
 		
 		return sb.toString();
 	}
@@ -46,10 +46,10 @@ public class SqlBuilder {
 		for(Coin coin : coins) {
 			sb.append("\t")
 				.append(insertSingleCoin(coin))
-				.append(", ");
+				.append(",\n");
 		}
 		
-		sb.setLength(sb.length() - 1);
+		sb.setLength(sb.length() - 2);
 		sb.append(";\n");
 		
 		return sb.toString();
@@ -59,6 +59,8 @@ public class SqlBuilder {
 		StringBuilder sb = new StringBuilder();
 		
 		sb.append("('").append(coin.getName()).append("', ")
+			.append("'").append(coin.getCode()).append("', ")
+			.append("'").append(coin.getYear()).append("', ")
 			.append("'").append(coin.getDiameter()).append("', ")
 			.append("'").append(coin.getShape()).append("', ")
 			.append("'").append(coin.getInscription()).append("', ")
@@ -69,9 +71,7 @@ public class SqlBuilder {
 			.append("'").append(coin.getStamp()).append("', ")
 			.append("'").append(coin.getBorder()).append("', ")
 			.append("'").append(coin.getComment()).append("', ")
-			.append("'").append(coin.getPhoto()).append("', ")
-			.append("'").append(coin.getCode()).append("', ")
-			.append("'").append(coin.getCode()).append("')");
+			.append("'").append(coin.getPhoto()).append("')");
 		
 		return sb.toString();
 	}
