@@ -27,9 +27,9 @@ public class SqlBuilder {
 			.append("circulation VARCHAR(255),")
 			.append("metal VARCHAR(255),")
 			.append("fineness VARCHAR(255),")
-			.append("weight VARCHAR(255,")
+			.append("weight VARCHAR(255),")
 			.append("stamp VARCHAR(255),")
-			.append("border VARCHAR(255,")
+			.append("border VARCHAR(255),")
 			.append("comment VARCHAR(255),")
 			.append("photo VARCHAR(255)")
 			.append(");\n\n");

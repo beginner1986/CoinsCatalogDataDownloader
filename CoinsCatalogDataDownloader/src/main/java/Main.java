@@ -26,6 +26,7 @@ public class Main {
 		try {
 			Random random = new Random();
 			int sleepTime = 5 + random.nextInt(10);
+			System.out.println("INFO: Sleeptime: " + sleepTime);
 			Thread.sleep(sleepTime * 1000);
 		} catch (InterruptedException e) {
 			System.out.println("ERROR: Slleping thread error.");
