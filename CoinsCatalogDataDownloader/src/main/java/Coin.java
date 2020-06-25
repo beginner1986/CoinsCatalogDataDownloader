@@ -30,18 +30,18 @@ public class Coin {
 		setPhoto(attributes.get(5));
 	}
 	
-	private String Name;
-	private String Code;
-	private String Year;
-	private String Diameter;
-	private String Shape;
-	private String Inscription;
-	private String Circulation;
-	private String Metal;
-	private String Fineness;
-	private String Weight;
-	private String Stamp;
-	private String Border;
-	private String Comment;
-	private String Photo;
+	private String name;
+	private String code;
+	private String year;
+	private String diameter;
+	private String shape;
+	private String inscription;
+	private String circulation;
+	private String metal;
+	private String fineness;
+	private String weight;
+	private String stamp;
+	private String border;
+	private String comment;
+	private String photo;
 }
