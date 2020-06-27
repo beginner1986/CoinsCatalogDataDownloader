@@ -20,6 +20,10 @@ public class Coin {
 	private String comment;
 	private String photo;
 	
+	public void setName(String name) {
+		this.name = name.replace("'", "''");
+	}
+	
 	public Coin(List<String> attributes) {
 		setName(attributes.get(0));
 
